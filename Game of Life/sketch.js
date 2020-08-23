@@ -1,12 +1,15 @@
 let microcosm;
 let x;
 let y;
-let paused = false;
+let paused = true;
 let clear = false;
 let cellSize = 10;
+let generationCount = 0;
 
 function setup(){
-    createCanvas(windowWidth, windowHeight - 200);
+    let cnv = createCanvas(windowWidth * .75, windowHeight * .75);
+    cnv.parent("instance");
+
     x = floor(width / cellSize);
     y = floor(height / cellSize);
 
@@ -17,7 +20,10 @@ function setup(){
 function draw(){
     background(255);
     microcosm.displayMicrocosm();
-    microcosm.nextIteration();
+    if(!paused){
+        microcosm.nextIteration();
+    }
+    updateGenerationCount();
 }
 
 function mousePressed(){
@@ -32,3 +38,15 @@ function mousePressed(){
         }
     }
 }
+
+function pauseButtonClicked(){
+    paused = true;
+}
+
+function playButtonClicked(){
+    paused = false;
+}
+
+function updateGenerationCount(){
+    document.getElementById("generation").innerHTML = generationCount;
+  }
