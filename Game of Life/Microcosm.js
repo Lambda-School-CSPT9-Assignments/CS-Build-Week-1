@@ -12,8 +12,8 @@ function Microcosm(x, y){
         }
         for(let i = 0; i < x; i++){
             for(let j = 0; j < y; j++){
-                this.mc[i][j] = 0;
-                //this.mc[i][j] = floor(random(2));
+                //this.mc[i][j] = 0;
+                this.mc[i][j] = floor(random(2));
             }
         }
     }

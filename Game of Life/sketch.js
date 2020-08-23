@@ -47,6 +47,12 @@ function playButtonClicked(){
     paused = false;
 }
 
+function clearButtonClicked(){
+    paused = true;
+    generationCount = 0;
+    microcosm.createNewMicrocosm();
+}
+
 function updateGenerationCount(){
     document.getElementById("generation").innerHTML = generationCount;
   }
