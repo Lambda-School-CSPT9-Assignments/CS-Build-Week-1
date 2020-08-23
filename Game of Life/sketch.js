@@ -27,6 +27,8 @@ function draw(){
 }
 
 function mousePressed(){
+    if(paused === false) return;
+    
     let xPos = floor(mouseX / cellSize);
     let yPos = floor(mouseY / cellSize);
 
