@@ -35,4 +35,17 @@ function Microcosm(x, y){
             }
         }
     }
+
+    this.countNeighborCells = function(xPos, yPos){
+        let sum = 0;
+        for (let i = -1; i < 2; i++) {
+            for (let j = -1; j < 2; j++) {
+                let col = (xPos + i + x) % x;
+                let row = (yPos + j + y) % y;
+                sum += this.mc[col][row];
+            }
+        }
+        sum -= this.mc[xPos][yPos];
+        return sum;
+    }
 }
