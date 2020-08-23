@@ -3,11 +3,12 @@ let x;
 let y;
 let paused = false;
 let clear = false;
+let cellSize = 10;
 
 function setup(){    
     createCanvas(windowWidth, windowHeight - 200);
-    x = width;
-    y = height;
+    x = floor(width / cellSize);
+    y = floor(height / cellSize);
 
     universe = create2DArr(x, y);
 
@@ -23,13 +24,13 @@ function draw(){
 
     for(let i = 0; i < x; i++){
         for(let j = 0; j < y; j++){
-            let rectX = i * 20;
-            let rectY = j * 20;
+            let rectX = i * cellSize;
+            let rectY = j * cellSize;
 
             if (universe[i][j] == 0) {
                 fill(255);
                 stroke(0);
-                rect(rectX, rectY, 20, 20);
+                rect(rectX, rectY, cellSize, cellSize);
             }
         }
     }
