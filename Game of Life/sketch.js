@@ -13,6 +13,7 @@ function setup(){
 
     microcosm = new Microcosm(x, y);
     microcosm.createNewMicrocosm();
+    //console.table(microcosm.mc);
 }
 
 function draw(){
@@ -20,3 +21,22 @@ function draw(){
     microcosm.displayMicrocosm();
 }
 
+function mousePressed(){
+    let xPos = floor(mouseX / cellSize);
+    let yPos = floor(mouseY / cellSize);
+
+    //console.log(microcosm.mc);
+
+    //alert(`Mouse X: ${mouseX}\n Mouse Y: ${mouseY}\n xLocation: ${xPos}\n yLocation: ${yPos}\n Width:${width}\n Height:${height}`);
+    //alert(typeof xPos);
+    //alert(microcosm.mc[0][0]);
+
+    if(mouseX < width && mouseY < height){
+        if(microcosm.mc[xPos][yPos] === 0){
+            microcosm.mc[xPos][yPos] = 1;
+        } else if(microcosm.mc[xPos][yPos] === 1) {
+            microcosm.mc[xPos][yPos] = 0;
+        }
+    }
+    //console.table(microcosm.mc);
+}
