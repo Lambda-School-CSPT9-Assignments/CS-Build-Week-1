@@ -3,6 +3,7 @@ function Microcosm(x, y){
     this.x = x;
     this.y = y;
     this.mc = [];
+    this.next = [];
 
     this.createNewMicrocosm = function(){
         this.mc = new Array(x);
@@ -11,11 +12,10 @@ function Microcosm(x, y){
         }
         for(let i = 0; i < x; i++){
             for(let j = 0; j < y; j++){
-                this.mc[i][j] = 0;
+                //this.mc[i][j] = 0;
+                this.mc[i][j] = floor(random(2));
             }
         }
-        //console.table(this.mc);
-        //console.log(cellSize);
     }
 
     this.displayMicrocosm = function(){
@@ -47,5 +47,31 @@ function Microcosm(x, y){
         }
         sum -= this.mc[xPos][yPos];
         return sum;
+    }
+
+    this.createNextMicrocosm = function(){
+        this.next = new Array(x);
+        for(let i = 0; i < this.next.length; i++){
+            this.next[i] = new Array(y);
+        }
+    }
+
+    this.nextIteration = function(){
+        this.createNextMicrocosm();
+        for (let i = 0; i < x; i++) {
+            for (let j = 0; j < y; j++) {
+                let cellState = this.mc[i][j];
+                let neighborCells = this.countNeighborCells(i, j);
+    
+                if (cellState === 0 && neighborCells === 3) {
+                    this.next[i][j] = 1;
+                } else if (cellState === 1 && (neighborCells < 2 || neighborCells > 3)) {
+                    this.next[i][j] = 0;
+                } else {
+                    this.next[i][j] = cellState;
+                }
+            }
+        }
+        this.mc = this.next;
     }
 }
