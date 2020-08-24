@@ -64,6 +64,7 @@ function randomButtonClicked(){
 }
 
 function nextButtonClicked(){
+    if(paused === false) return;
     microcosm.nextIteration();
     updateGenerationCount();
 }
