@@ -53,7 +53,7 @@ function clearButtonClicked(){
     paused = true;
     generationCount = 0;
     updateGenerationCount();
-    microcosm.createNewMicrocosm();
+    microcosm.createBlankMicrocosm();
 }
 
 function randomButtonClicked(){
