@@ -41,36 +41,36 @@ function mousePressed(){
     }
 }
 
-function pauseButtonClicked(){
-    paused = true;
+function controlButtonClicked(id){
+    if(id === "pause") paused = true;
+    if(id === "play") paused = false;
 }
 
-function playButtonClicked(){
-    paused = false;
-}
-
-function clearButtonClicked(){
+function reset(){
     paused = true;
     generationCount = 0;
     updateGenerationCount();
+}
+
+function clearButtonClicked(){
+    reset();
     microcosm.createBlankMicrocosm();
 }
 
 function randomButtonClicked(){
-    paused = true;
-    generationCount = 0;
-    updateGenerationCount();
+    reset();
     microcosm.createRandomMicrocosm();
 }
 
 function nextButtonClicked(){
     if(paused === false) return;
+
     microcosm.nextIteration();
     updateGenerationCount();
 }
 
 function gliderButtonClicked(){
-    clearButtonClicked();
+    clearButtonClicked()
     microcosm.mc[2][1] = 1;
     microcosm.mc[3][2] = 1;
     microcosm.mc[1][3] = 1;
@@ -171,7 +171,6 @@ function gunButtonClicked(){
     microcosm.mc[36][3] = 1;
     microcosm.mc[36][4] = 1;
 }
-
 
 function updateGenerationCount(){
     document.getElementById("generation").innerHTML = generationCount;
