@@ -14,21 +14,21 @@ function setup(){
     y = floor(height / cellSize);
 
     microcosm = new Microcosm(x, y);
-    microcosm.createNewMicrocosm();
+    microcosm.createRandomMicrocosm();
 }
 
 function draw(){
     background(255);
     microcosm.displayMicrocosm();
     if(!paused){
+        updateGenerationCount();
         microcosm.nextIteration();
     }
-    updateGenerationCount();
 }
 
 function mousePressed(){
     if(paused === false) return;
-    
+
     let xPos = floor(mouseX / cellSize);
     let yPos = floor(mouseY / cellSize);
 
@@ -52,8 +52,22 @@ function playButtonClicked(){
 function clearButtonClicked(){
     paused = true;
     generationCount = 0;
+    updateGenerationCount();
     microcosm.createNewMicrocosm();
 }
+
+function randomButtonClicked(){
+    paused = true;
+    generationCount = 0;
+    updateGenerationCount();
+    microcosm.createRandomMicrocosm();
+}
+
+function nextButtonClicked(){
+    microcosm.nextIteration();
+    updateGenerationCount();
+}
+
 
 function updateGenerationCount(){
     document.getElementById("generation").innerHTML = generationCount;

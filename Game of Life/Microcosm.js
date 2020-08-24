@@ -12,7 +12,18 @@ function Microcosm(x, y){
         }
         for(let i = 0; i < x; i++){
             for(let j = 0; j < y; j++){
-                //this.mc[i][j] = 0;
+                this.mc[i][j] = 0;
+            }
+        }
+    }
+
+    this.createRandomMicrocosm = function(){
+        this.mc = new Array(x);
+        for(let i = 0; i < this.mc.length; i++){
+            this.mc[i] = new Array(y);
+        }
+        for(let i = 0; i < x; i++){
+            for(let j = 0; j < y; j++){
                 this.mc[i][j] = floor(random(2));
             }
         }
@@ -57,6 +68,7 @@ function Microcosm(x, y){
     }
 
     this.nextIteration = function(){
+        generationCount++;
         this.createNextMicrocosm();
         for (let i = 0; i < x; i++) {
             for (let j = 0; j < y; j++) {
@@ -73,6 +85,5 @@ function Microcosm(x, y){
             }
         }
         this.mc = this.next;
-        generationCount++;
     }
 }
