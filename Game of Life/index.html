@@ -13,34 +13,42 @@
 </head>
 
 <body>
-    <div id = "instance">
+    <div class="flex-container">
+        <div id = "instance"></div>
+        <div class="instructions-container">
+            <div>
+                <h1>Conway's Game of Life</h1>
+                <p>The rules of Conway's Game of life are as follows:</p>
+                <ol>
+                    <li>Any live cell with two or three live neighbours survives.</li>
+                    <li>Any dead cell with three live neighbours becomes a live cell.</li>
+                    <li>All other live cells die in the next generation. Similarly, all other dead cells stay dead.</li>
+                </ol>
+                <p>The grid is preset with a random pattern, hit play to see it in action.</p>
+                <p>You can click on a cell while the simulation is puased to activate/deactivate it.</p>
+                <p>While the simulation is paused, you can click Next to manually step into the next interation.</p>
+                <p>Clicking on any of the presets below will load that preset.</p>
+            </div>
+            <h4>Controls</h4>
+            <div class="btn-group">
+                <button class="button" id = "play" onclick = "controlButtonClicked(this.id)">Play</button>
+                <button class="button" id = "pause" onclick = "controlButtonClicked(this.id)">Pause</button>
+                <button class="button" onclick = "nextButtonClicked()">Next</button>
+                <button class="button" onclick = "clearButtonClicked()">Clear</button>
+            </div>
+            <h4>Presets</h4>
+            <div class="btn-group">
+                <button class="button" onclick = "randomButtonClicked()">Random</button>
+                <button class="button" id = "glider" onclick = "presetButtonClicked(this.id)">Glider</button>
+                <button class="button" id = "pulsar" onclick = "presetButtonClicked(this.id)">Pulsar</button>
+                <button class="button" id = "gun" onclick = "presetButtonClicked(this.id)">Glider Gun</button>
+            </div>
+            <div class="generation">
+                <span>Generation:</span>
+                <span id = "generation">0</span>
+            </div>
+        </div>
     </div>
-    <div>
-        <button id = "play" onclick = "controlButtonClicked(this.id)">Play</button>
-    </div>
-    <div>
-        <button id = "pause" onclick = "controlButtonClicked(this.id)">Pause</button>
-    </div>
-    <div>
-        <button onclick = "nextButtonClicked()">Next</button>
-    </div>
-    <div>
-        <button onclick = "randomButtonClicked()">Random</button>
-    </div>
-    <div>
-        <button onclick = "clearButtonClicked()">Clear</button>
-    </div>
-    <div>
-        <button id = "glider" onclick = "presetButtonClicked(this.id)">Glider</button>
-    </div>
-    <div>
-        <button id = "pulsar" onclick = "presetButtonClicked(this.id)">Pulsar</button>
-    </div>
-    <div>
-        <button id = "gun" onclick = "presetButtonClicked(this.id)">Glider Gun</button>
-    </div>
-    <span>Generation:</span>
-    <span id = "generation">0</span>
 </body>
 
 </html>

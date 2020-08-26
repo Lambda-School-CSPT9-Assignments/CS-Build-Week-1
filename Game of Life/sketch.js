@@ -7,7 +7,7 @@ let cellSize = 10;
 let generationCount = 0;
 
 function setup(){
-    let cnv = createCanvas(windowWidth * .75, windowHeight * .75);
+    let cnv = createCanvas(windowWidth / 2, windowHeight);
     cnv.parent("instance");
 
     x = floor(width / cellSize);

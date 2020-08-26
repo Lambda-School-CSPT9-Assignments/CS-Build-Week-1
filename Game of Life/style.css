@@ -7,3 +7,36 @@ body {
 canvas {
     display: block;
 }
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.instructions-container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.btn-group {
+    display: flex;
+    flex-direction: row;
+}
+
+.button {
+    background-color: lightgrey;
+    border: 1px solid black;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    width: 150px;
+    display: block;
+  }
+
+  .generation {
+      justify-self: center;
+  }
