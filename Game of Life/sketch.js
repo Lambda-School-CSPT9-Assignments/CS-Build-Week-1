@@ -19,6 +19,7 @@ function setup(){
 
 function draw(){
     background(255);
+    updateButtonBackground();
     microcosm.displayMicrocosm();
     if(!paused){
         updateGenerationCount();
@@ -42,8 +43,12 @@ function mousePressed(){
 }
 
 function controlButtonClicked(id){
-    if(id === "pause") paused = true;
-    if(id === "play") paused = false;
+    if(id === "pause") {
+        paused = true;
+    }
+    if(id === "play") {
+        paused = false;
+    }
 }
 
 function reset(){
@@ -55,6 +60,16 @@ function reset(){
 function updateGenerationCount(){
     document.getElementById("generation").innerHTML = generationCount;
   }
+
+function updateButtonBackground(){
+    if(paused){
+        document.getElementById("pause").className = "button-select";
+        document.getElementById("play").className = "button";
+    } else {
+        document.getElementById("play").className = "button-select";
+        document.getElementById("pause").className = "button";
+    }
+}
 
 function clearButtonClicked(){
     reset();
