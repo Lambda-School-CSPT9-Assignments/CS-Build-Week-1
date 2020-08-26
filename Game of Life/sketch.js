@@ -43,12 +43,8 @@ function mousePressed(){
 }
 
 function controlButtonClicked(id){
-    if(id === "pause") {
-        paused = true;
-    }
-    if(id === "play") {
-        paused = false;
-    }
+    if(id === "pause") paused = true;
+    if(id === "play") paused = false;
 }
 
 function reset(){
